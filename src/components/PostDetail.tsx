@@ -2,12 +2,15 @@ import { useParams } from 'react-router-dom';
 
 import { usePost } from '../hooks/usePost';
 
+import Error from './Error';
+import Loading from './Loading';
+
 const PostDetail = () => {
   const { postId } = useParams<{ postId: string }>();
   const { postQuery, commentsQuery } = usePost(Number(postId));
 
-  if (postQuery.isLoading || commentsQuery.isLoading) return <div>Loading...</div>;
-  if (postQuery.error || commentsQuery.error) return <div>Error loading post</div>;
+  if (postQuery.isLoading || commentsQuery.isLoading) return <Loading />;
+  if (postQuery.error || commentsQuery.error) return <Error message="Error loading post" />;
 
   const { data: post } = postQuery;
   const { data: comments } = commentsQuery;

@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 
 import { useUserPosts } from '../hooks/useUserPosts';
 
+import Error from './Error.tsx';
+import Loading from './Loading.tsx';
+
 const UserPosts = () => {
   const { userId } = useParams<{ userId: string }>();
   const { data: posts, isLoading, error } = useUserPosts(Number(userId));
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading posts</div>;
+  if (isLoading) return <Loading />;
+  if (error) return <Error message={'Error loading posts'} />;
 
   if (!posts) return <div>No posts found</div>;
 

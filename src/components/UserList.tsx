@@ -2,11 +2,14 @@ import { Link } from 'react-router-dom';
 
 import { useUsers } from '../hooks/useUsers';
 
+import Error from './Error.tsx';
+import Loading from './Loading.tsx';
+
 const UserList = () => {
   const { data: users, isLoading, error } = useUsers();
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading users</div>;
+  if (isLoading) return <Loading />;
+  if (error) return <Error message={'Error loading users'} />;
   if (!users) return <div>No users found</div>;
 
   return (

@@ -5,6 +5,9 @@ import { ApiPost } from '../api/types';
 import { usePosts } from '../hooks/usePosts';
 import { useUsers } from '../hooks/useUsers';
 
+import Error from './Error.tsx';
+import Loading from './Loading.tsx';
+
 const PostList = () => {
   const { data: posts, isLoading: postsLoading, error: postsError } = usePosts();
   const { data: users, isLoading: usersLoading, error: usersError } = useUsers();
@@ -46,8 +49,8 @@ const PostList = () => {
     });
   }, [posts, users, sortKey, sortOrder]);
 
-  if (postsLoading || usersLoading) return <div>Loading...</div>;
-  if (postsError || usersError) return <div>Error loading data</div>;
+  if (postsLoading || usersLoading) return <Loading />;
+  if (postsError || usersError) return <Error message={'Error loading posts'} />;
 
   return (
     <div className="post-list">
