@@ -13,11 +13,11 @@ const UserPosts = () => {
   if (!posts) return <div>No posts found</div>;
 
   return (
-    <div className="user-posts">
+    <div className="user-posts grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {posts.map((post) => (
-        <div key={post.id} className="post">
+        <div key={post.id} className="post bg-white p-4 rounded shadow">
           <Link to={`/post/${post.id}`}>
-            <h2>{post.title}</h2>
+            <h2 className="text-xl font-bold">{post.title}</h2>
           </Link>
         </div>
       ))}

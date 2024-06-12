@@ -16,19 +16,23 @@ const PostDetail = () => {
 
   return (
     <div className="post-detail">
-      <h1>{post.title}</h1>
-      <p>{post.body}</p>
-      <h2>Comments</h2>
-      {comments ? (
-        comments.map((comment) => (
-          <div key={comment.id} className="comment">
-            <h3>{comment.name}</h3>
-            <p>{comment.body}</p>
-          </div>
-        ))
-      ) : (
-        <div>No comments</div>
-      )}
+      <div className="bg-white p-6 rounded shadow mb-4">
+        <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
+        <p className="text-gray-700">{post.body}</p>
+      </div>
+      <h2 className="text-2xl font-bold mb-2">Comments</h2>
+      <div className="comments">
+        {comments ? (
+          comments.map((comment) => (
+            <div key={comment.id} className="comment bg-gray-100 p-4 rounded shadow mb-2">
+              <h3 className="text-xl font-semibold">{comment.name}</h3>
+              <p>{comment.body}</p>
+            </div>
+          ))
+        ) : (
+          <div>No comments</div>
+        )}
+      </div>
     </div>
   );
 };
