@@ -23,6 +23,11 @@ module.exports = {
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   overrides: [
     // override "simple-import-sort" config
     {
