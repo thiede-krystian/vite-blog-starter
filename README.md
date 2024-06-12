@@ -9,8 +9,8 @@ This project is a modern React application bootstrapped with Vite, TypeScript, a
 Clone the repository:
 
 ```sh
-git clone https://github.com/your-repo.git
-cd your-repo
+git clone https://github.com/thiede-krystian/vite-blog-starter.git
+cd vite-blog-starter
 ```
 
 Install dependencies:
